@@ -1,0 +1,9 @@
+.bike-tile-container {
+
+  transform-style: preserve-3d;
+  transition: all 0.2s;
+  
+  &.flipped {
+    transform: rotateY(180deg);
+  }
+}

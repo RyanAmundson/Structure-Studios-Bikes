@@ -1,0 +1,29 @@
+:host {
+  height: 100%;
+  width: 100%;
+
+}
+
+.bike-tile-container {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  display:flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+
+.bike-name {
+  display:flex;
+  height:1rem;
+  width:100%;
+  align-items: flex-start;
+  justify-content: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color:#dbccb6;
+  
+
+}

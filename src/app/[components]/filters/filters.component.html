@@ -1,0 +1,21 @@
+<div *ngIf="filters$; else noFilters">
+  <h2>Filters ({{ count }} results)</h2>
+
+  <ng-container *ngFor="let filter of filters$ | async | keyvalue">
+    <h4>{{ filter.key }}</h4>
+
+    <mat-chip-listbox
+      aria-label="Place Filter"
+      [multiple]="true"
+      (change)="filterChanged($event, filter.key)"
+    >
+      <mat-chip-option color="primary" *ngFor="let v of filter.value">
+        {{ v }}
+      </mat-chip-option>
+    </mat-chip-listbox>
+  </ng-container>
+</div>
+
+<ng-template #noFilters>
+  <p>No filters available</p>
+</ng-template>

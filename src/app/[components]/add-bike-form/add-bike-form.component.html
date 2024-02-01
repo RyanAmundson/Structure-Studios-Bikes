@@ -1,0 +1,110 @@
+<div class="flex-container dialog-container">
+  <h2 mat-dialog-title>Add a Bike</h2>
+  <form [formGroup]="bikeForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+      <div class="form-controls">
+        <!-- Make and Model -->
+        <mat-form-field class="form-field">
+          <mat-label>Make</mat-label>
+          <input matInput placeholder="Make" formControlName="make" />
+          <mat-error *ngIf="bikeForm.get('make')?.hasError('required')"
+            >Make is required</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+          <mat-label>Model</mat-label>
+          <input matInput placeholder="Model" formControlName="model" />
+          <mat-error *ngIf="bikeForm.get('model')?.hasError('required')"
+            >Model is required</mat-error
+          >
+        </mat-form-field>
+
+        <!-- Type, Frame Size, Wheel Size, Color, Material, Brake Type, Suspension, Gears, Weight -->
+        <!-- Repeat the pattern for other form controls -->
+
+        <!-- In Stock -->
+        <mat-form-field class="form-field">
+          <mat-label>Stock</mat-label>
+          <input matInput placeholder="Stock" formControlName="stock" />
+          <mat-error *ngIf="bikeForm.get('stock')?.hasError('required')"
+            >Stock is required</mat-error
+          >
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field class="form-field">
+          <mat-label>Description</mat-label>
+          <textarea
+            matInput
+            placeholder="Description"
+            formControlName="description"
+          ></textarea>
+        </mat-form-field>
+
+        <!-- Warranty Period -->
+        <mat-form-field class="form-field">
+          <mat-label>Warranty Period</mat-label>
+          <input
+            matInput
+            placeholder="Warranty Period"
+            formControlName="warrantyPeriod"
+          />
+        </mat-form-field>
+
+        <!-- Image URL -->
+        <mat-form-field class="form-field">
+          <mat-label>Image</mat-label>
+          <input matInput placeholder="storage set up for (bike-photos/bike{number}.png)" formControlName="image" />
+          <mat-error *ngIf="bikeForm.get('image')?.hasError('required')"
+            >Image URL is required</mat-error
+          >
+          <mat-error *ngIf="bikeForm.get('image')?.hasError('pattern')"
+            >Invalid URL format</mat-error
+          >
+        </mat-form-field>
+
+        <!-- Features -->
+        <div class="form-field" *ngIf="!isEdit">
+          <div class="features-header">
+            <h5>Features:</h5>
+            <button mat-stroked-button color="primary" (click)="addFeature()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <div
+            *ngFor="let featureCtrl of featureControls.controls; let i = index"
+            class="feature-group"
+          >
+            <mat-form-field class="form-field">
+              <mat-label>Feature {{ i + 1 }}</mat-label>
+              <input matInput [formControl]="featureCtrl" />
+            </mat-form-field>
+            <button mat-icon-button color="primary" (click)="removeFeature(i)">
+              <mat-icon>remove_circle_outline</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+      <button (click)="cancel()"
+        class="cancel-button"
+        mat-stroked-button
+        color="warn"
+        type="cancel"
+      >
+        Cancel
+      </button>
+      <button
+        class="submit-button"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="bikeForm.invalid"
+      >
+        Submit
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>

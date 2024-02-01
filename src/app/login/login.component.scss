@@ -1,0 +1,26 @@
+
+:host {
+  height:100%;
+  width:100%;
+}
+
+.login-container {
+  height:calc(100% - 64px);
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  .image-container {
+    display: flex;
+  }
+
+  a {
+    margin-top:1rem;
+    color: white;
+    font-size:9px;
+    cursor: pointer;
+  }
+
+}
+

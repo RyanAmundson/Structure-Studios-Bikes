@@ -1,0 +1,63 @@
+<mat-drawer-container color="primary" class="side-nav">
+  <mat-drawer #drawer mode="over">
+    <app-filters [count]="(allBikes$ | async)?.length ?? 0" (filterChange)="updateActiveFilters($event)"></app-filters>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary">
+      <div class="actions">
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>filter_alt</mat-icon>
+        </button>
+        <button mat-icon-button color="Primary" (click)="openAddBikeDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button class="test-data-button" mat-stroked-button color="Primary" (click)="createBikes(20)">
+          +20
+        </button>
+        <button class="test-data-button" mat-stroked-button color="Primary" (click)="clearAll()">
+          Clear All
+        </button>
+      </div>
+      <h3>Current Inventory</h3>
+    </mat-toolbar>
+    <div #feedList class="feed-list-container">
+      <ng-container>
+        <app-masonry
+          [layout]="[masonryConfig.layout]"
+          [gutterSize]="'25px'"
+          [content]="(filteredBikes$ | async) ?? []"
+          [frontFaceTemplate]="frontFaceTemplate"
+          [backFaceTemplate]="backFaceTemplate"
+          [actionBarTemplate]="actionBarTemplate"
+          [config]="masonryConfig"
+        >
+          <ng-template #frontFaceTemplate let-bike>
+            <app-bike-tile-front [bike]="bike"></app-bike-tile-front>
+          </ng-template>
+
+          <ng-template #backFaceTemplate let-bike>
+            <app-bike-tile-back [bike]="bike"></app-bike-tile-back>
+          </ng-template>
+
+          <ng-template #actionBarTemplate let-bike>
+            <app-bike-tile-action-bar [bike]="bike"></app-bike-tile-action-bar>
+          </ng-template>
+        </app-masonry>
+
+        <div class="loading-container" *ngIf="loading()">
+          <mat-spinner color="primary" diameter="25"></mat-spinner>
+        </div>
+      </ng-container>
+    </div>
+    <div class="back-to-top">
+      <button
+        mat-fab
+        color="primary"
+        (click)="backToTop()"
+        *ngIf="showScrollToTop"
+      >
+        <mat-icon>expand_less</mat-icon>
+      </button>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,80 @@
+/* add-bike-form.component.scss */
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  /* Column layout for child elements */
+  align-items: center;
+  /* Center horizontally */
+  justify-content: space-evenly;
+  /* Center vertically */
+  height: 100%;
+  /* Make the container fill the viewport height */
+  overflow: hidden;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* Column layout for form fields */
+  align-items: stretch;
+  /* Center horizontally */
+  justify-content: space-evenly;
+  /* Center vertically */
+  height: 90%;
+  /* Make the form fill the viewport height */
+  width: 100%;
+
+}
+
+.form-field {
+  width: 90%;
+  margin-bottom: 6px;
+  /* Adjust the margin between form fields */
+}
+
+.feature-group {
+  display: flex;
+  align-items: baseline;
+  /* Align the labels and inputs */
+  justify-content: space-between;
+  margin-bottom: 8px;
+  /* Adjust the margin between feature groups */
+}
+
+.form-controls {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+  padding: 2%;
+  box-sizing: border-box;
+  padding-bottom: 10%;
+}
+
+.submit-button {
+  display: flex;
+  align-self: flex-end;
+}
+
+.features-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+      margin: 0;
+    }
+  }
+}
+
+
+.dialog-container {
+  background-image: url('/assets/images/Contour Line.svg');
+}

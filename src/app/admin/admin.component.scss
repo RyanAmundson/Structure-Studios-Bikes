@@ -1,0 +1,90 @@
+:host {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+}
+
+.feed-list-container {
+  h4 {
+    color: white;
+  }
+
+  padding: 1rem;
+  min-height: calc(100% - 64px - 64px);
+  height: 100%;
+  max-height: calc(100% - 64px);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  background-image: url('/assets/images/Sprinkle.svg');
+
+  app-masonry {
+    margin: 0 auto;
+    display: block;
+    max-width: 1400px;
+  }
+}
+
+.loading-container {
+
+  box-sizing: border-box;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+
+}
+
+app-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+
+.side-nav {
+  height: 100%;
+  width: 100%;
+
+  mat-drawer {
+    padding: 0.3rem;
+    max-width: 60%;
+    background-color: black;
+    min-width: 200px;
+  }
+
+  mat-drawer-content {
+    overflow: hidden;
+  }
+}
+
+mat-toolbar {
+  min-height:64px;
+  display: flex;
+  justify-content: space-between;
+  background-image: url('/assets/images/Contour Line.svg');
+  
+  .actions {
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.test-data-button {
+  margin-left: 10px;
+}

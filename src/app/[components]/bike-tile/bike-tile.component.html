@@ -1,0 +1,11 @@
+<div class="bike-tile-container" [class.flipped]="flipped()">
+  <div>
+    <app-bike-tile-front [bike]="bike"> </app-bike-tile-front>
+    <app-bike-tile-back [bike]="bike"> </app-bike-tile-back>
+  </div>
+  <div class="bike-tile-actions">
+    <mat-icon>edit</mat-icon>
+    <mat-icon>delete</mat-icon>
+    <mat-icon>open_in_full</mat-icon>
+  </div>
+</div>

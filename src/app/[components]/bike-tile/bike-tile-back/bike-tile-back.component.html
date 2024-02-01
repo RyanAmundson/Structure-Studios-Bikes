@@ -1,0 +1,27 @@
+<div class="bike-card">
+  <div class="bike-header">
+    <h2>{{ bike?.make || "-" }} {{ bike?.model || "-" }}</h2>
+    <div class="bike-image">
+      <img [src]="'/assets/images/' + bike.image" alt="Bike Image" />
+    </div>
+  </div>
+  <div class="bike-details">
+    <div>Type: {{ bike?.type || "-" }}</div>
+    <div>Frame Size: {{ bike?.frameSize || "-" }}</div>
+    <div>Wheel Size: {{ bike?.wheelSize || "-" }} inches</div>
+    <div>Color: {{ bike?.color || "-" }}</div>
+    <div>Material: {{ bike?.material || "-" }}</div>
+    <div>Brake Type: {{ bike?.brakeType || "-" }}</div>
+    <div>Suspension: {{ bike?.suspension || "-" }}</div>
+    <div>Gears: {{ bike?.gears || "-" }}</div>
+    <div>Weight: {{ bike?.weight || "-" }} kg</div>
+    <div>Dimensions: {{ bike?.dimensions || "-" }}</div>
+    <div>Price: {{ (bike?.price | currency) || "-" }}</div>
+    <div>Stock: {{ bike?.stock || "-" }}</div>
+    <div>Description: {{ bike?.description || "-" }}</div>
+    <ul>
+      <li *ngFor="let feature of bike?.features || []">{{ feature || "-" }}</li>
+    </ul>
+    <div>Warranty Period: {{ bike?.warrantyPeriod || "-" }}</div>
+  </div>
+</div>

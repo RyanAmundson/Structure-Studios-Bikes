@@ -1,0 +1,16 @@
+<div class="app-container">
+  <app-header></app-header>
+
+  <div
+    class="content"
+    [style.height]="headerService.hidden() ? '100%' : 'calc(100% - 64px)'"
+  >
+    <ng-container *ngIf="appReady; else spinner">
+      <router-outlet></router-outlet>
+    </ng-container>
+  </div>
+
+  <ng-template #spinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>

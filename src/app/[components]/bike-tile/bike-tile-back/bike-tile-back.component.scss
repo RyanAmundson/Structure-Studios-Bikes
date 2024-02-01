@@ -1,0 +1,45 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.bike-card {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+
+}
+
+.bike-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bike-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+.bike-image {
+  flex: 0;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bike-image img {
+  border-radius: 50%;
+  max-width: 75px;
+  max-height: 75px;
+  object-fit: cover;
+}

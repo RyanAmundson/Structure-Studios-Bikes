@@ -1,0 +1,30 @@
+<div
+  class="masonry-tile"
+  (mouseover)="togglehover(!this.hover())"
+  (mouseout)="togglehover(!this.hover())"
+>
+  <div class="masonry-tile-body" [class.flipped]="flipped()" (click)="flip()">
+    <!-- front -->
+    <div class="front-face container image-container">
+      <ng-content select="[front]"></ng-content>
+    </div>
+    <!-- back -->
+    <div class="back-face container content-container">
+      <ng-content select="[back]"></ng-content>
+    </div>
+  </div>
+  <!-- expand -->
+  <ng-container *ngIf="enableHover">
+    <div [@grow]="hover()"
+      class="action-bar"
+      [ngStyle]="{ display: hover() ? 'flex' : 'none' }"
+    >
+      <button mat-icon-button class="tile-controls" color="primary" (click)="expand($event)">
+        <mat-icon>open_in_full</mat-icon>
+      </button>
+      <div class="projected-controls">
+        <ng-content select="[actionBar]"></ng-content>
+      </div>
+    </div>
+  </ng-container>
+</div>
